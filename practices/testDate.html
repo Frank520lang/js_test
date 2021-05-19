@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function testDate(){
+            var newDate = new Date();
+            var full=newDate.getFullYear();
+            console.log("日期对象"+newDate);
+            console.log("年"+full);
+            console.log("月"+newDate.getMonth());
+            console.log("时"+newDate.getHours());
+            console.log("分"+newDate.getMinutes());
+            console.log("秒"+newDate.getSeconds());
+            console.log("月的某一天"+newDate.getDate());
+            console.log("一周的某一天"+newDate.getDay());
+            console.log("date对象的毫秒值"+newDate.getMilliseconds());
+            console.log("1970/1/1日的毫秒值"+newDate.getTime());
+            console.log(""+newDate.getTimezoneOffset());
+            console.log(""+newDate.getUTCDate());
+        }
+        testDate();
+    </script>
+</body>
+</html>

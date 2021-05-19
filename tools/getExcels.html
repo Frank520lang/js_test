@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/xlsx.core.min.js"></script> 
+    <script src="../js/xlsx.utils.js"></script>
+</head>
+
+<body>
+    <input type="file" id="demo" />
+    <div id="loadInfo"></div>
+    <div>
+        <div>
+            <label>SheetNames</label>:
+            <span id="SheetNames"></span>
+        </div>
+        <div>
+            <label id="demoName"></label>(示例):
+            <span id="demoData"></span>
+        </div>
+    </div>
+    <script>
+        var demo = document.getElementById("demo");
+        demo.onchange = function () {
+            let f = this.files[0];
+            let loadInfo = document.getElementById("loadInfo");
+            let demoName = document.getElementById("demoName");
+            let demoData = document.getElementById("demoData");
+            loadInfo.innerHTML = "正在读取请骚等";
+            demoName.innerHTML = "";
+            demoData.innerHTML = "";
+            xlsxUtils.import(f, (w) => {
+                //stringify,将一个 JavaScript 对象或值转换为 JSON 字符串
+                document.getElementById("SheetNames").innerHTML = JSON.stringify(w.SheetNames);
+                demoName.innerHTML = w.SheetNames[0];
+                demoData.innerHTML = JSON.stringify(xlsxUtils.getSheetByIndex(0));
+                loadInfo.innerHTML = "读取完成";
+            });
+        };
+    </script>
+</body>
+
+</html>

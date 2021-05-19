@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function testString(){
+            var str='frank';
+            //对应字符的Unicode编码
+            for (var i=0;i<str.length;i++){ 
+                console.log(str.charCodeAt(i));
+            }
+            //对应Unicode编码的对应字符
+            var numberList=[65,66,112];
+            for(var i=0 ;i<numberList.length;i++){
+                console.log(String.fromCharCode(numberList[i]));   
+            }
+            //取前不取后
+            console.log(str.slice(2,4));
+            //前后索引都取
+            console.log(str.substr(2,4));
+            //查找子字符串
+            if(str.indexOf('an',3)==-1){
+                console.log('匹配不到对应的字符串');
+            }else{
+                console.log(str.indexOf('an',3));
+            }
+            
+        }
+        function testStringTransffer(){
+            var str = "I \n am \r an \"active\" boy";
+            console.log(str);
+        }
+        //testString();
+        testStringTransffer();
+        
+        
+        
+    </script>
+</body>
+</html>

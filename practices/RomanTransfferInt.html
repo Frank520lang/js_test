@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var str = "Ⅰ";
+        //罗马数字转整数
+        function RomanInt(str){
+            //将字符串的第一个参数转化为对应的整数
+            var preNum = getValue(str.charAt(0));
+            //从第二个字符遍历字符串
+            var sum=0;
+            for(var i=1;i<str.length;i++){
+                var nextNum = getValue(str.charAt(i));
+                //判断相邻字符的值大小
+                //当前一个字符对应的整数值比后一个字符小时
+                if(preNum < nextNum){
+                    sum=sum-preNum;
+                }else{
+                    //当前一个字符比后一个字符大或者相等事
+                    sum=sum+preNum;
+                }
+                //指针移动
+                preNum=nextNum;
+            }
+            return sum=preNum+sum;
+
+        }
+        //将对应的罗马字符转化为对应的整数
+        function getValue(ch) {
+        switch(ch) {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+            default: return 0;
+            }
+        }
+    console.log(RomanInt("MDIV"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象练习</title>
+</head>
+<body>
+    <div>
+        <!-- <button onclick="this.innerHTML=Date()">点击显示当前时间</button> -->
+        <h1 align="center">页面布局</h1>
+        <div id="left">左</div>
+        <div id="right">
+            <div id="top">上</div>
+            <div id="foot">下</div>
+        </div>
+    </div>
+    <script>
+        var Object={
+                name:'frank',
+                age:'40',
+                sex:'nan',
+                person:{
+                    long:12,
+                    width:23,
+                    hight:45
+                },
+                //对象中的数组
+                list:[1,2,3,4,5],
+                //对象中方法
+                count:function(){
+                    return 'jdk1.8'
+                }
+            }
+        function testObject(Object){
+            console.log(typeof Object);
+            console.log(Object.age);
+            console.log(Object.person);
+            console.log(Object.name);
+            console.log(Object[2]);//下标是拿不到值的
+            console.log(Object[3]);
+            console.log(Object["age"]);//可以拿到属性的值
+            console.log(Object["person"]);
+            console.log(Object.list[2]);
+            for(var i=0;i<Object.list.length;i++){
+                console.log(Object.list[i]);
+            }
+            console.log(Object.count())
+        }
+        testObject(Object);
+    </script>
+</body>
+<style>
+    #left{
+        background-color:#FFA500;
+        float: left;
+        height: 500px;
+        width: 50%;
+    }
+    #right{
+        background-color: blue;
+        float: left;
+        height: 500px;
+        width: 50%;
+    }
+    #top{
+        background-color: brown;
+        height: 250px;
+    }
+    #foot{
+        background-color: cyan;
+        height: 250px;
+    }
+</style>
+</html>

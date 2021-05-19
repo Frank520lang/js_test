@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //输出最长公共前缀
+        //横向扫描
+        function LongestCommonPrefix(strs){
+
+            var longestPre = "";
+            //数组长度为0，或者数组为空
+            //先判断数组是否为null再判断length是否为0；因为null对象没有length这个属性
+            //LongestCommonPrefix.html:18 Uncaught TypeError: Cannot read property 'length' of null
+            // if(strs.length==0||strs==null){
+            //     return longestPre;
+            // }
+            if(strs==null || strs.length==0){
+                return longestPre;
+            }
+            //数组只有一个元素与含多个元素
+            if(strs.length==1){
+                var longestPre =  strs[0];
+            }else{
+                var preString =  strs[0];
+                for(var i=1;i<strs.length;i++){
+                    preString = TwoCommonPrefix(preString,strs[i]);
+                }
+                longestPre=preString;
+            }
+            
+            return longestPre;
+
+        }
+        //返回两个字符串的公共前缀
+        function TwoCommonPrefix(str1,str2){
+            var strLength = Math.min(str1.length,str2.length);
+            var preFix="";
+            for(var i = 0;i<strLength;i++){
+                //先执行下面代码块，再i++
+                if(str1.charAt(i)==str2.charAt(i)){
+                    preFix =  str2.substring(0,i+1);  
+                }else{
+                    break;
+                }
+                
+            }
+            //console.log(preFix);
+            return preFix;
+        }
+        //strs = ["flower","flow","flight"]
+        //strs = ["reflower","flow","flight"]
+        //strs = ["aaa","aa","aaa"]
+        strs = null;
+        console.log(LongestCommonPrefix(strs));
+        //console.log(TwoCommonPrefix("stre","str"));
+        
+    </script>
+</body>
+</html>
