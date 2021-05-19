@@ -17,6 +17,7 @@
         </div>
     </div>
     <script>
+        //对象以键值的形式存储
         var Object={
                 name:'frank',
                 age:'40',
@@ -33,6 +34,15 @@
                     return 'jdk1.8'
                 }
             }
+        //遍历对象
+        function forObject(Object){
+            for (const key in Object) {
+                //遍历健
+                console.log(key+":"+Object[key]);
+                //遍历值
+                //console.log(Object[key])
+            }
+        }
         function testObject(Object){
             console.log(typeof Object);
             console.log(Object.age);
@@ -48,7 +58,8 @@
             }
             console.log(Object.count())
         }
-        testObject(Object);
+        //testObject(Object);
+        forObject(Object);
     </script>
 </body>
 <style>
