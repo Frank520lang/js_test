@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function setCookie(cname,cvalue,exdays){
+            var d = new Date();
+            d.setTime(d.getTime()+(exdays*24*60*60*1000));
+            var expires = "expires="+d.toGMTString();
+            document.cookie = cname+"="+cvalue+"; "+expires;
+        }
+        function getCookie(cname){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+            }
+            return "";
+        }
+        function checkCookie(){
+            var user=getCookie("username");
+            if (user!=""){
+                alert("欢迎 " + user + " 再次访问");
+            }
+            else {
+                user = prompt("请输入你的名字:","");
+                  if (user!="" && user!=null){
+                    setCookie("username",user,30);
+                }
+            }
+        }
+        </script>
+</head>
+<body>
+    <body onload="checkCookie()">
+        
+</body>
+    <!-- <script>
+// cookie储存再用户终端的文本数据；字符串
+//cookie的一些基本属性，name,value,expires
+        function getCookie(){
+            //将字符串分割成字符数组
+            var ck=document.cookie.split(";");
+            for(var i=0;i<ck.length;i++){
+                //去除字符串的前后空格
+                var c=ck[i].trim();
+                console.log(c);
+                if(c.indexOf("liang")==0){return c}
+            }
+            return "";
+        }
+        function setCookie(user,expires){
+            //设置cookie的一些属性值
+            document.cookie=user+";"+user+";"+expires;
+        }
+        function checkCookie(){
+            //获取到当前的cookie
+            var user = getCookie();
+            //判断cookie是否为空
+            if (user!="") {
+                alert("欢迎"+user+"再次访问");
+            } else {
+                //弹出一个输入框，提供用户输入用户名
+                user=prompt("请输入用户名：","");
+                setCookie(user,30);
+            }
+
+        }
+    </script> -->
+</body>
+</html>
