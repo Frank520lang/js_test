@@ -24,7 +24,24 @@
             console.log(""+newDate.getTimezoneOffset());
             console.log(""+newDate.getUTCDate());
         }
-        testDate();
+        function testDateFormate(){
+            var date1=new Date("20210520114612");
+            var date2=new Date("7 25,1996 12:12:12");
+            var date3=new Date("7 25,1996");
+            var date4=new Date("1996,7,25,1,1,1");
+            var date5=new Date("1996,7,25");
+            var date6=new Date("12 12");
+
+            console.log(date1+":"+date1.toString);
+            console.log(date2+":"+date2.toString);
+            console.log(date3+":"+date3.toString);
+            console.log(date4+":"+date4.toString);
+            console.log(date5+":"+date5.toString);
+            console.log(date6+":"+date6.toString);
+
+        }
+        //testDate();
+        testDateFormate();
     </script>
 </body>
 </html>
