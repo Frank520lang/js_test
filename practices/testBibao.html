@@ -7,20 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <button type="button" onclick="myFunction()">计数!</button>
-        <p id="demo">0</p>
-    </div>
     <script>
-        var add = (function(){
-            var count=0;
+        //1、定义和用法：当一个函数的返回值是另外一个函数，而返回的那个函数如果调用了其父函数内部的其它变量，如果返回的这个函数在外部被执行，就产生了闭包。
+
+        //2、表现形式：使函数外部能够调用函数内部定义的变量。
+        var count=10;   //全局作用域 标记为flag1
+        function add(){
+            var count=0;    //函数全局作用域 标记为flag2
             return function(){
-                return count+=1;
+            count+=1;   //函数的内部作用域
+            alert(count);
             }
-        })()
-        function myFunction(){
-            document.getElementById("demo").innerHTML=add();
         }
+        var s = add()
+        s();//输出1
+        s();//输出2
     </script>
 </body>
 </html>

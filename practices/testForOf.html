@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function TestForOf(){
+            var a=[1,2,3,4,5];
+            //主要存储键值
+            var s=new Set([7,8,9,10]);
+            //主要存储键值对，相当于一个二维数组
+            var map=new Map([[1,'liang'],[2,'feng'],[3,'frank']]);
+            //迭代器的形式遍历
+            for (const i of a) {
+                console.log('遍历数组：'+i);
+            }
+            for (const i of s) {
+                console.log("遍历set集合："+i);
+            }
+            for (const i of map) {
+                console.log("遍历map集合："+i[0]+"="+i[1]);
+            }
+        }
+        TestForOf();
+    </script>
+</body>
+</html>
